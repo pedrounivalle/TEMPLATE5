@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- APP CSS -->
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/app.css">
+	
+	<!-- APP CSS -->
+	
+	<!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	
+	
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DESCARGAS</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="#"><span>HUECALI</span></a>
+				
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="https://avatars.assets.tangelogames.app/bazaar/avatar/render?id=21535521&hash=10171811388872004552&size=normal" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Bienvenido</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Registro</a></li>
+			<li><a href="consultas.html"><em class="fa fa-calendar">&nbsp;</em> Consultas</a></li>
+			<li class="active"><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Descargas</a></li>
+			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Manual</a></li>
+			<li><a href="charts2.html"><em class="fa fa-clone">&nbsp;</em>Gráficos</a></li>
+			
+			<li><a href="/template5/login/login.html"><em class="fa fa-power-off color-red">&nbsp;</em> Logout</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+		
+	<div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                Consulta histórica de huecos reportados
+            </div>
+        </div>
+        <div class="main-content">
+            <!--Consulta Tabla-->
+            <div class="row">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="example-date-input" class="form-label">Desde</label>
+                                    <!--<div><h3>Titulo1</h3></div>-->
+                            </div>
+                            <div class="col-8">
+                                <input class="btn-borde center-item" type="date" value="2021-01-01" min="2021-01-01" max="2025-12-31" id="initDate">
+                                <!--<div><h3>Titulo1.1</h3></div>-->
+                            </div>
+                            <div class="col-4">
+                                <label for="example-date-input" class="form-label">Hasta</label>
+                                <!--<div><h3>Titulo2</h3></div>-->
+                            </div>
+                            <div class="col-8">
+                                <input class="btn-borde center-item" type="date" value="2021-01-01" min="2021-01-01" max="2025-12-31" id="endDate">
+                                <!--<div><h3>Titulo2.2</h3></div>-->
+                            </div>
+                            <div class="col-12 center-item">
+                                <input class="btn-borde" type="button" value="Generar tabla" id="sendDate" onclick="fillTable()">
+                                <!--<div><h3>Completo</h3></div>-->
+                            </div>
+                            <!--<div class="col-6">
+                                <input class="btn-blue center-item" type="button" value="Limpiar" id="cleanDate" onclick="cleanTable()">
+                                <div><h3>Completo</h3></div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <div class="row">
+							<div class="col-4">
+								<p class="checkColumn"><input type="checkbox" class="check" id="fechaCheck" checked disabled="true" onclick="offColumn()">gid</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="horaCheck" checked disabled="true" onclick="offColumn()">nombre</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="veloCheck" checked disabled="true" onclick="offColumn()">email</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="radCheck" checked disabled="true" onclick="offColumn()">fecha</p>
+							</div>
+							<div class="col-4">
+								<p class="checkColumn"><input type="checkbox" class="check" id="tempCheck" checked disabled="true" onclick="offColumn()">descripcion</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="dirCheck" checked disabled="true" onclick="offColumn()">direccion</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="barCheck" checked disabled="true" onclick="offColumn()">barrio</p>
+								<p class="checkColumn"><input type="checkbox" class="check" id="comCheck" checked disabled="true" onclick="offColumn()">numerocomuna</p>
+								</div>
+							
+						</div>
+                    </div>
+                </div>
+			</div>
+
+            <!--Consulta Gráfica-->
+            <div class="row">
+                <div class="col-12 col-m-12 col-sm-12">
+                    <div class="box">
+                        <div class="box-header">
+                           Resultados
+                            <a class="card-header" href="#" onclick="download_table_as_csv('table2');">
+                                <i class='bx bx-download'></i>
+                            </a>
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <table id="table2">
+                            <thead>
+                                <tr>
+                                    <th class="gid">GID</th>
+                                    <th class="nombre">NOMBRE</th>
+                                    <th class="email">EMAIL</th>
+                                    <th class="fecha">FECHA</th>
+                                    <th class="descripcion">DESCRIPCION</th>
+									<th class="direccion">DIRECCION</th>
+                                    <th class="barrio">BARRIO</th>
+                                    <th class="numerocomuna">NUMEROCOMUNA</th>
+                                </tr>
+                            </thead>
+                            </table>
+                            <input class="btn-blue" type="button" value="Limpiar tabla" id="cleanDate" onclick="cleanTable()">
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <!--Graficas-->
+            
+        </div>
+    </div>
+	  
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/displayColumns.js"></script>
+	<script src="js/generateTable.js"></script>
+
+</body>
+</html>

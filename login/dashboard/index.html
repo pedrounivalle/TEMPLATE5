@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<?php
+# Incluir el contador de visitas
+include_once "contar_visita.php";
+?>
+<html>
+<head>
+<script src="https://kit.fontawesome.com/39f4e71729.js" crossorigin="anonymous"></script>
+<!--boton boostrap--------------------------------------------------->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!--boton boostrap--------------------------------------------------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PRINCIPAL</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!--leaflet--------------------------------------------------->
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   	crossorigin=""/>
+   	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<!--leaflet--------------------------------------------------->
+	
+	
+	<!--jquery--------------------------------------------------->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+	<!--jquery--------------------------------------------------->	
+
+</head>
+<body>
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="#"><span>HUECALI</span></a>
+				
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="https://avatars.assets.tangelogames.app/bazaar/avatar/render?id=21535521&hash=10171811388872004552&size=normal" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Bienvenido</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li class="active"><a href="index.html"><em class="far fa-address-book">&nbsp;</em> Registro</a></li>
+			<li><a href="consultas.html"><em class="fa fa-calendar">&nbsp;</em> Consultas</a></li>
+			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Descargas</a></li>
+			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em>Manual</a></li>
+			<li><a href="charts2.html"><em class="fa fa-clone">&nbsp;</em>Gráficos</a></li>
+			
+			<li><a href="/template5/login/login.html"><em class="fa fa-power-off color-red">&nbsp;</em> Logout</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Home</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<!-- <div class="row">
+			<div class="col-lg-12">
+				<h5 class="page-header">Dashboard</h5>
+			</div>
+		</div> --><!--/.row-->
+		
+		<div class="panel panel-container">
+			<div class="row">
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-teal panel-widget border-right">
+						<div class="row no-padding"><i class="fa fa-xl fa-exclamation-triangle color-red" aria-hidden="true"></i>
+							<div class="large" id="nivel"></div> 
+							<div class="text-muted">Eventos ocurridos</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-blue panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
+							<div class="large">52</div>
+							<div class="text-muted">Comments</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-orange panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
+							<div class="large" id="nivel2"></div>
+							<div class="text-muted">usuarios registrados</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-red panel-widget ">
+						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
+							<div class="large">25</div>
+							<div class="text-muted">Page Views</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.row-->
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+															<button class="btn btn-info btn-lg" id="botonformulario" type="button" data-toggle="modal" data-target="#myModal">Registrar hueco</button>
+
+
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+    
+								<!-- Modal content-->
+								<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Modal Header</h4>
+								</div>
+								<div class="modal-body">
+									<p>Por favor haga click en el mapa en el sitio donde está el hueco.
+									Apoyese de las capas para una mejor ubicación.</p>
+								</div>
+									<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+      
+							</div>
+						</div>
+						
+						
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<div id="mapid" style="width: 100%; height: 500px;" class="crosshair"></div><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="modal fade" id="formulariomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><p id="titulomodal"></p></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <form>
+		.
+		  <div class="form-group">
+			<label for="input_lat">Latitud:</label>
+			<input type="text" class="form-control" id="input_lat" aria-describedby="emailHelp" placeholder="">
+		  </div>
+
+		  <div class="form-group">
+			<label for="input_lon">Longitud:</label>
+			<input type="text" class="form-control" id="input_lon" placeholder="">
+		  </div>
+
+		  <div class="form-group">
+			<label for="input_fec">Fecha:</label>
+			<input type="date" class="form-control" id="input_fec" placeholder="">
+		  </div>
+ 
+		  <div class="form-group">
+			<label for="input_nom">Nombre:</label>
+			<input type="text" class="form-control" id="input_nom" placeholder="">
+		  </div>
+
+		  <div class="form-group">
+			<label for="input_mai">Email:</label>
+			<input type="text" class="form-control" id="input_mai" placeholder="">
+		  </div>
+
+		  <div class="form-group">
+			<label for="input_des">Descripción:</label>
+			<input type="text" class="form-control" id="input_des" placeholder="">
+		  </div> 
+
+		  <div class="form-group">
+			<label for="input_des">Direccion:</label>
+			<input type="text" class="form-control" id="input_dir" placeholder="">
+		  </div> 
+		  
+		  <div class="form-group">
+			<label for="input_des">Barrio:</label>
+			<input type="text" class="form-control" id="input_bar" placeholder="">
+		  </div> 
+		  
+		  <div class="form-group">
+			<label for="input_des">Comuna:</label>
+			<input type="text" class="form-control" id="input_com" placeholder="">
+		  </div> 
+		  <div class="form-group">
+			<label for="input_foto">Foto</label>
+			<input type="file" class="form-control-file" id="input_foto" accept="image/*">
+		  </div>
+
+		</form>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="enviarform">Enviar Formulario</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		</div><!--/.row-->
+		
+		
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Calendar
+						<ul class="pull-right panel-settings panel-button-tab-right">
+							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+								<em class="fa fa-cogs"></em>
+							</a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li>
+										
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+						<div id="calendar"></div>
+					</div>
+				</div>
+				
+			</div><!--/.col-->
+			
+			
+			<div class="col-md-6">
+				<div class="panel panel-default ">
+					<div class="panel-heading">
+						Ultimos reportes
+						<ul class="pull-right panel-settings panel-button-tab-right">
+							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
+								<em class="fa fa-cogs"></em>
+							</a>
+								<
+							</li>
+						</ul>
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body timeline-container">
+						<ul class="timeline">
+							<li>
+								<div class="timeline-badge primary"><em class="glyphicon glyphicon-pushpin"></em></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title"><h1 class="large" id="fecha1"></h1></h4>
+									</div>
+									<div class="timeline-body">
+										<h1 class="large" id="descrip"></h1>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-badge primary"><em class="glyphicon glyphicon-pushpin"></em></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h1 class="large" id="fecha2"></h1>
+									</div>
+									<div class="timeline-body">
+										<h1 class="large" id="descrip2"></h1>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-badge primary"><em class="glyphicon glyphicon-pushpin"></em></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h1 class="large" id="fecha3"></h1>
+									</div>
+									<div class="timeline-body">
+										<h1 class="large" id="descrip3"></h1>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-badge primary"><em class="glyphicon glyphicon-pushpin"></em></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h1 class="large" id="fecha4"></h1>
+									</div>
+									<div class="timeline-body">
+										<h1 class="large" id="descrip4"></h1>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div><!--/.col-->
+			<div class="col-sm-12">
+				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+			</div>
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+	
+	<script src="js/map.js"></script>
+	<script src="peticion.js"></script>
+	<script src="peticionusuarios.js"></script>
+	<script src="js/peticiondescripcion.js"></script>
+	<script src="js/peticiondescripcion1.js"></script>
+	<script src="js/peticiondescripcion2.js"></script>
+	<script src="js/peticiondescripcion3.js"></script>
+	<script src="js/peticionfecha.js"></script>
+	<script src="js/peticionfecha2.js"></script>
+	<script src="js/peticionfecha3.js"></script>
+	<script src="js/peticionfecha4.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	<script>
+		window.onload = function () {
+	var chart1 = document.getElementById("line-chart").getContext("2d");
+	window.myLine = new Chart(chart1).Line(lineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+};
+	</script>
+	
+	<script>
+
+
+	var popup = L.popup();
+
+	
+	
+
+	function onMapClick(e) {
+
+		var lat =e.latlng.lat.toFixed(5);
+		var lon =e.latlng.lng.toFixed(5);
+
+		$('#formulariomodal').modal();
+
+		$("#titulomodal").text("Formulario de reporte");
+
+		$("#input_lat").val(lat);
+		$("#input_lat").prop('disabled', true);
+
+		$("#input_lon").val(lon);
+		$("#input_lon").prop('disabled', true);
+
+		var now = new Date();
+		var day = ("0" + now.getDate()).slice(-2);
+		var month = ("0" + (now.getMonth() + 1)).slice(-2);
+		var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+	   $('#input_fec').val(today);
+
+	}
+
+
+
+	$("#botonformulario").on("click",function(){
+
+		mymap.once('click', onMapClick);
+
+	})
+
+	$("#enviarform").on("click",function(){
+
+
+		var lat = $("#input_lat").val();
+		var lon = $("#input_lon").val();
+		var fec = $("#input_fec").val();
+		var nom = $("#input_nom").val();
+		var mai = $("#input_mai").val();
+		var des = $("#input_des").val();
+		var dir = $("#input_dir").val();
+		var bar = $("#input_bar").val();
+		var com = $("#input_com").val(); 		
+
+		//Funcion que permite leer una imagen
+		function getBase64(file) {
+		   var reader = new FileReader();
+		   reader.readAsDataURL(file);
+		   reader.onload = function () {
+			 var base64 = reader.result;
+			 lecturadatos(base64);
+
+
+		   };
+		   reader.onerror = function (error) {
+			 console.log('Error: ', error);
+		   };
+		}
+		var file = document.getElementById('input_foto').files[0];
+
+		//Compara si hay foto o no
+		if(file){
+		getBase64(file);
+		}else{
+		lecturadatos('Sin Foto')
+		}
+		
+		//Lee los datos capturados anteriormente, recibe como parametro la imagen si la tiene y envia todo al servidor
+		//haciendo uso de agregar.php
+		function lecturadatos(img){
+
+			var datos= {
+			lat :lat,
+			lon :lon,
+			fec :fec,
+			nom :nom,
+			mai :mai,
+			des :des,
+			foto:img,
+			dir :dir,
+			bar :bar,
+			com :com
+			};
+
+			console.log(img);
+
+
+
+			 $.ajax({
+				url: "php/agregar.php",
+				type: "post",
+				data: datos,
+				success: function (response) {
+				   console.log(response);
+					window.location.reload(true);
+
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+				   console.log(textStatus, errorThrown);
+				}
+			});
+		}
+	})
+	
+		</script>
+</body>
+</html>

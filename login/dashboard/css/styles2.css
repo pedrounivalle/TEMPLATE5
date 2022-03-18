@@ -1,0 +1,39 @@
+#mapid { 
+	height: 500px; 
+	width: 600px;
+}
+
+#imgFinca{
+	width: 70%;
+	
+}
+
+.NavBut{
+	position: relative;
+	width: 100%;
+}
+
+.ButIcon{
+	position: absolute;
+	left: 5px
+}
+
+.CardIcon{
+	position: absolute;
+	right: 10px
+}
+
+
+.chart{
+	height: 300px;
+}
+
+.sidenav {
+  
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+
+
+}
+
+

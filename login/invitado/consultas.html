@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CONSULTAS</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   	crossorigin=""/>
+   	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+
+</head>
+<body>
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="#"><span>HUECALI</span></a>
+				
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="https://avatars.assets.tangelogames.app/bazaar/avatar/render?id=21535521&hash=10171811388872004552&size=normal" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Bienvenido</div>
+				<div class="profile-usertitle-status"><span class="fas fa-circle color-red"></span>Offline</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li><a href="index.html"><em class="fa fa-address-book">&nbsp;</em> Registro</a></li>
+			<li class="active"><a href="consultas.html"><em class="fa fa-calendar">&nbsp;</em> Consultas</a></li>
+			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Descargas</a></li>
+			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Manual</a></li>
+			<li><a href="charts2.html"><em class="fa fa-clone">&nbsp;</em> Gráficos</a></li>
+			
+			<li><a href="/template5/login/login.html"><em class="fa fa-power-off color-blue">&nbsp;</em> Login</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Consultas</li>
+				
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Consultas</h1>
+			</div>
+		</div><!--/.row-->
+
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Consulta por comuna</button>
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">Consulta por barrio</button>
+	<div class="card">
+    
+	
+	<!--/.modal------------------------------------------------------------------------------------------------>
+	
+	<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Consultas por comuna</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-group">
+		  Consultar por:<br>
+		        <select class="form-control" id="tipodebusqueda">
+							 <option value="comunas">Comuna</option>
+							 
+							 
+		      	 </select>
+		  <br>
+		  <select class="form-control" id="refer">
+							 <option value="1">1</option>
+							 <option value="2">2</option>
+							 <option value="3">3</option>
+							 <option value="4">4</option>
+							 <option value="5">5</option>
+							 <option value="6">6</option>
+							 <option value="7">7</option>
+							 <option value="8">8</option>
+							 <option value="9">9</option>
+							 <option value="10">10</option>
+							 <option value="11">11</option>
+							 <option value="12">12</option>
+							 <option value="13">13</option>
+							 <option value="14">14</option>
+							 <option value="15">15</option>
+							 <option value="16">16</option>
+							 <option value="17">17</option>
+							 <option value="18">18</option>
+							 <option value="19">19</option>
+							 <option value="20">20</option>
+							 <option value="21">21</option>
+							 <option value="22">22</option>
+							 
+		      	 </select>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="consultar();consultar3()">Consultar</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+	
+	<!--/.modal------------------------------------------------------------------------------------------------>
+	
+	
+	
+	
+	
+	<div class="card">
+    
+	
+	<!--/.modal barrios------------------------------------------------------------------------------------------------>
+	
+	<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Consulta por barrio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-group">
+		  Consultar por:<br>
+		        <select class="form-control" id="tipodebusqueda2">
+							 
+							 <option value="barrios">Barrio</option>
+							 
+							 
+		      	 </select>
+		  <br>
+		  <select class="form-control" id="refer2">
+							 <option value="12 DE OCTUBRE">12 DE OCTUBRE</option>
+<option value="20 DE JULIO">20 DE JULIO</option>
+<option value="3 DE JULIO">3 DE JULIO</option>
+<option value="ACUEDUCTO SAN ANTONIO">ACUEDUCTO SAN ANTONIO</option>
+<option value="AGUABLANCA">AGUABLANCA</option>
+<option value="AGUACATAL">AGUACATAL</option>
+<option value="ALAMEDA">ALAMEDA</option>
+<option value="ALFEREZ REAL">ALFEREZ REAL</option>
+<option value="ALFONSO BARBERENA">ALFONSO BARBERENA</option>
+<option value="ALFONSO BONILLA ARAGON">ALFONSO BONILLA ARAGON</option>
+<option value="ALFONSO LOPEZ I">ALFONSO LOPEZ I</option>
+<option value="ALFONSO LOPEZ II">ALFONSO LOPEZ II</option>
+<option value="ALFONSO LOPEZ III">ALFONSO LOPEZ III</option>
+<option value="ALIRIO MORA BELTRAN">ALIRIO MORA BELTRAN</option>
+<option value="ALTO DE LOS CHORROS">ALTO DE LOS CHORROS</option>
+<option value="ALTO JORDAN">ALTO JORDAN</option>
+<option value="ALTOS DE MENGA">ALTOS DE MENGA</option>
+<option value="ALTOS DE NAPOLES">ALTOS DE NAPOLES</option>
+<option value="ALTOS DE SANTA ISABEL LA MORELIA">ALTOS DE SANTA ISABEL LA MORELIA</option>
+<option value="ANTONIO NARINO">ANTONIO NARINO</option>
+<option value="ARANJUEZ">ARANJUEZ</option>
+<option value="ARBOLEDAS">ARBOLEDAS</option>
+<option value="AREA LIBRE- PARQUE DEL AMOR">AREA LIBRE- PARQUE DEL AMOR</option>
+<option value="AREA LIBRE-C6">AREA LIBRE-C6</option>
+<option value="AREA LIBRE-C70">AREA LIBRE-C70</option>
+<option value="AREA LIBRE-C73A">AREA LIBRE-C73A</option>
+<option value="ASPROSOCIAL DIAMANTE">ASPROSOCIAL DIAMANTE</option>
+<option value="ASTURIAS">ASTURIAS</option>
+<option value="ATANASIO GIRARDOT">ATANASIO GIRARDOT</option>
+<option value="B. HERRERA">B. HERRERA</option>
+<option value="BAJOS CIUDAD CORDOBA">BAJOS CIUDAD CORDOBA</option>
+<option value="BARRIO CALDAS">BARRIO CALDAS</option>
+<option value="BARRIO EUCARISTICO">BARRIO EUCARISTICO</option>
+<option value="BARRIO OBRERO">BARRIO OBRERO</option>
+<option value="BASE AEREA MARCO FIDEL SUAREZ">BASE AEREA MARCO FIDEL SUAREZ</option>
+<option value="BELALCAZAR">BELALCAZAR</option>
+<option value="BELEN">BELEN</option>
+<option value="BELISARIO CAICEDO">BELISARIO CAICEDO</option>
+<option value="BELLA SUIZA">BELLA SUIZA</option>
+<option value="BELLAVISTA">BELLAVISTA</option>
+<option value="BELLO HORIZONTE">BELLO HORIZONTE</option>
+<option value="BERLIN">BERLIN</option>
+<option value="BOLIVARIANO">BOLIVARIANO</option>
+<option value="BOLIVARIANO">BOLIVARIANO</option>
+<option value="BOYACA">BOYACA</option>
+<option value="BRETANA">BRETANA</option>
+<option value="BRISAS DE LOS ALAMOS">BRISAS DE LOS ALAMOS</option>
+<option value="BRISAS DE MAYO">BRISAS DE MAYO</option>
+<option value="BRISAS DEL LIMONAR">BRISAS DEL LIMONAR</option>
+<option value="BUENOS AIRES">BUENOS AIRES</option>
+<option value="CALIMA">CALIMA</option>
+<option value="CALIMIO DESEPAZ">CALIMIO DESEPAZ</option>
+<option value="CALYPSO">CALYPSO</option>
+<option value="CAMINO REAL- J. BORRERO S.">CAMINO REAL- J. BORRERO S.</option>
+<option value="CAMINO REAL - LOS FUNDADORES">CAMINO REAL - LOS FUNDADORES</option>
+<option value="CANAVERAL">CANAVERAL</option>
+<option value="CANAVERALEJO">CANAVERALEJO</option>
+<option value="CANAVERALES LOS SAMANES">CANAVERALES LOS SAMANES</option>
+<option value="CANEY">CANEY</option>
+<option value="CATAYA">CATAYA</option>
+<option value="CEMENTERIO - CARABINEROS">CEMENTERIO - CARABINEROS</option>
+<option value="CENTENARIO">CENTENARIO</option>
+<option value="CHAMPAGNAT">CHAMPAGNAT</option>
+<option value="CHAPINERO">CHAPINERO</option>
+<option value="CHARCO AZUL">CHARCO AZUL</option>
+<option value="CHIMINANGOS I">CHIMINANGOS I</option>
+<option value="CHIMINANGOS II">CHIMINANGOS II</option>
+<option value="CHIPICHAPE">CHIPICHAPE</option>
+<option value="CIUDAD 2000">CIUDAD 2000</option>
+<option value="CIUDAD CAMPESTRE">CIUDAD CAMPESTRE</option>
+<option value="CIUDAD CAPRI">CIUDAD CAPRI</option>
+<option value="CIUDAD CORDOBA">CIUDAD CORDOBA</option>
+<option value="CIUDAD LOS ALAMOS">CIUDAD LOS ALAMOS</option>
+<option value="CIUDAD UNIVERSITARIA">CIUDAD UNIVERSITARIA</option>
+<option value="CIUDADELA DEL RIO">CIUDADELA DEL RIO</option>
+<option value="CIUDADELA FLORALIA">CIUDADELA FLORALIA</option>
+<option value="CIUDADELA PASO ANCHO">CIUDADELA PASO ANCHO</option>
+<option value="CIUDALELA TALANGA">CIUDALELA TALANGA</option>
+<option value="CLUB CAMPESTRE">CLUB CAMPESTRE</option>
+<option value="CLUB CAMPESTRE">CLUB CAMPESTRE</option>
+<option value="CLUB FARALLONES">CLUB FARALLONES</option>
+<option value="COLINAS DEL SUR">COLINAS DEL SUR</option>
+<option value="COLSEGUROS ANDES">COLSEGUROS ANDES</option>
+<option value="COMPARTIR">COMPARTIR</option>
+<option value="COMPARTIR DESEPAZ">COMPARTIR DESEPAZ</option>
+<option value="CONQUISTADORES">CONQUISTADORES</option>
+<option value="CRISTOBAL COLON">CRISTOBAL COLON</option>
+<option value="CUARTELES NAPOLES">CUARTELES NAPOLES</option>
+<option value="CUARTO DE LENGUA">CUARTO DE LENGUA</option>
+<option value="DEPARTAMENTAL">DEPARTAMENTAL</option>
+<option value="E. SANTOS">E. SANTOS</option>
+<option value="EL ANGEL DEL HOGAR">EL ANGEL DEL HOGAR</option>
+<option value="EL BOSQUE">EL BOSQUE</option>
+<option value="EL CALVARIO">EL CALVARIO</option>
+<option value="EL CEDRO">EL CEDRO</option>
+<option value="EL CORTIJO">EL CORTIJO</option>
+<option value="EL DIAMANTE">EL DIAMANTE</option>
+<option value="EL DORADO">EL DORADO</option>
+<option value="EL GRAN LIMONAR">EL GRAN LIMONAR</option>
+<option value="EL GUABAL">EL GUABAL</option>
+<option value="EL HORMIGURO">EL HORMIGURO</option>
+<option value="EL HOYO">EL HOYO</option>
+<option value="EL INGENIO">EL INGENIO</option>
+<option value="EL JARDIN">EL JARDIN</option>
+<option value="EL JORDAN">EL JORDAN</option>
+<option value="EL LIDO">EL LIDO</option>
+<option value="EL LIMONAR">EL LIMONAR</option>
+<option value="EL MORTINAL">EL MORTINAL</option>
+<option value="EL NACIONAL">EL NACIONAL</option>
+<option value="EL PARAISO">EL PARAISO</option>
+<option value="EL PENOL">EL PENOL</option>
+<option value="EL PILOTO">EL PILOTO</option>
+<option value="EL POBLADO">EL POBLADO</option>
+<option value="EL POBLADO II">EL POBLADO II</option>
+<option value="EL PONDAJE">EL PONDAJE</option>
+<option value="EL PRADO">EL PRADO</option>
+<option value="EL RECUERDO">EL RECUERDO</option>
+<option value="EL REFUGIO">EL REFUGIO</option>
+<option value="EL REMANZO">EL REMANZO</option>
+<option value="EL RETIRO">EL RETIRO</option>
+<option value="EL RODEO">EL RODEO</option>
+<option value="EL SENA">EL SENA</option>
+<option value="EL TREBOL">EL TREBOL</option>
+<option value="EL TRONCAL">EL TRONCAL</option>
+<option value="EL VERGEL">EL VERGEL</option>
+<option value="ESMERALDA">ESMERALDA</option>
+<option value="EVARISTO GARCIA">EVARISTO GARCIA</option>
+<option value="FATIMA">FATIMA</option>
+<option value="FENALCO KENNEDY">FENALCO KENNEDY</option>
+<option value="FEPICOL">FEPICOL</option>
+<option value="FLORA INDUSTRIAL">FLORA INDUSTRIAL</option>
+<option value="FONAVLEMCALI">FONAVLEMCALI</option>
+<option value="FRANCISCO E. RAMIREZ">FRANCISCO E. RAMIREZ</option>
+<option value="GRANADA">GRANADA</option>
+<option value="GUAYAQUIL">GUAYAQUIL</option>
+<option value="GUILLERMO LEON VALENCIA">GUILLERMO LEON VALENCIA</option>
+<option value="HORIZONTES">HORIZONTES</option>
+<option value="IGNACIO RENGIFO">IGNACIO RENGIFO</option>
+<option value="INDUSTRIA DE LICORES">INDUSTRIA DE LICORES</option>
+<option value="INDUSTRIAL">INDUSTRIAL</option>
+<option value="JORGE ELIECER GAITAN">JORGE ELIECER GAITAN</option>
+<option value="JORGE ISAACS">JORGE ISAACS</option>
+<option value="JORGE ZAWADSKY">JORGE ZAWADSKY</option>
+<option value="JOSE HOLGUIN GARCES">JOSE HOLGUIN GARCES</option>
+<option value="JOSE M. CORDOBA">JOSE M. CORDOBA</option>
+<option value="JOSE MANUEL MARROQUIN I">JOSE MANUEL MARROQUIN I</option>
+<option value="JOSE MANUEL MARROQUIN II">JOSE MANUEL MARROQUIN II</option>
+<option value="JUANAMBU">JUANAMBU</option>
+<option value="JULIO RINCON">JULIO RINCON</option>
+<option value="JUNIN">JUNIN</option>
+<option value="LA ALBORADA">LA ALBORADA</option>
+<option value="LA ALIANZA">LA ALIANZA</option>
+<option value="LA BASE">LA BASE</option>
+<option value="LA BUITRERA">LA BUITRERA</option>
+<option value="LA BUITRERA">LA BUITRERA</option>
+<option value="LA BUITRERA">LA BUITRERA</option>
+<option value="LA CAMPINA">LA CAMPINA</option>
+<option value="LA CASCADA">LA CASCADA</option>
+<option value="LA CASCADA">LA CASCADA</option>
+<option value="LA CIUDADELA CAMFANDI">LA CIUDADELA CAMFANDI</option>
+<option value="LA ESPERANZA">LA ESPERANZA</option>
+<option value="LA FLORA">LA FLORA</option>
+<option value="LA FLORESTA">LA FLORESTA</option>
+<option value="LA FORTALEZA">LA FORTALEZA</option>
+<option value="LA GRAN COLOMBIA">LA GRAN COLOMBIA</option>
+<option value="LA HACIENDA">LA HACIENDA</option>
+<option value="LA INDEPENDENCIA">LA INDEPENDENCIA</option>
+<option value="LA ISLA">LA ISLA</option>
+<option value="LA LIBERTAD">LA LIBERTAD</option>
+<option value="LA MERCED">LA MERCED</option>
+<option value="LA PAZ">LA PAZ</option>
+<option value="LA PLAYA">LA PLAYA</option>
+<option value="LA RIVERA">LA RIVERA</option>
+<option value="LA SELVA">LA SELVA</option>
+<option value="LAGUNA DEL BONDAJE">LAGUNA DEL BONDAJE</option>
+<option value="LAS ACACIAS">LAS ACACIAS</option>
+<option value="LAS AMERICAS">LAS AMERICAS</option>
+<option value="LAS CEIBAS">LAS CEIBAS</option>
+<option value="LAS DALIAS-PIZAMOS III">LAS DALIAS-PIZAMOS III</option>
+<option value="LAS DELICIAS">LAS DELICIAS</option>
+<option value="LAS GRANJAS">LAS GRANJAS</option>
+<option value="LAS ORQUIDEAS">LAS ORQUIDEAS</option>
+<option value="LAUREANO GOMEZ">LAUREANO GOMEZ</option>
+<option value="LEON XII">LEON XII</option>
+<option value="LILI">LILI</option>
+<option value="LIMONAR - CATAYA">LIMONAR - CATAYA</option>
+<option value="LLERAS">LLERAS</option>
+<option value="LLERAS CAMARGO">LLERAS CAMARGO</option>
+<option value="LOS ALCAZARES">LOS ALCAZARES</option>
+<option value="LOS ANDES">LOS ANDES</option>
+<option value="LOS ANDES B- LA RIVIERA">LOS ANDES B- LA RIVIERA</option>
+<option value="LOS CAMBULOS">LOS CAMBULOS</option>
+<option value="LOS CHORROS">LOS CHORROS</option>
+<option value="LOS COMUNEROS I">LOS COMUNEROS I</option>
+<option value="LOS COMUNEROS II">LOS COMUNEROS II</option>
+<option value="LOS FARALLONES">LOS FARALLONES</option>
+<option value="LOS GUADUALES">LOS GUADUALES</option>
+<option value="LOS GUAYACANES">LOS GUAYACANES</option>
+<option value="LOS LAGOS">LOS LAGOS</option>
+<option value="LOS LIBERTADORES">LOS LIBERTADORES</option>
+<option value="LOS LIDERES">LOS LIDERES</option>
+<option value="LOS NARANJOS I">LOS NARANJOS I</option>
+<option value="LOS NARANJOS II">LOS NARANJOS II</option>
+<option value="LOS PARQUES">LOS PARQUES</option>
+<option value="LOS PORTALES - NUEVO REY">LOS PORTALES - NUEVO REY</option>
+<option value="LOS RUBIES">LOS RUBIES</option>
+<option value="LOS SAUCES">LOS SAUCES</option>
+<option value="LOURDES">LOURDES</option>
+<option value="M.F. SUAREZ">M.F. SUAREZ</option>
+<option value="MANUEL MARIA BUENVENTURA">MANUEL MARIA BUENVENTURA</option>
+<option value="MANUELA BELTRAN">MANUELA BELTRAN</option>
+<option value="MANZANARES">MANZANARES</option>
+<option value="MARACAIBO">MARACAIBO</option>
+<option value="MARIANO RAMOS">MARIANO RAMOS</option>
+<option value="MARIO CORREA RENGIFO">MARIO CORREA RENGIFO</option>
+<option value="MARROQUIN III">MARROQUIN III</option>
+<option value="MAYAPAN - LAS VEGAS">MAYAPAN - LAS VEGAS</option>
+<option value="MELENDEZ">MELENDEZ</option>
+<option value="MENGA">MENGA</option>
+<option value="METROPOLITANO DEL NORTE">METROPOLITANO DEL NORTE</option>
+<option value="MIRAFLORES">MIRAFLORES</option>
+<option value="MOJICA">MOJICA</option>
+<option value="MONACO - LA SULTANA">MONACO - LA SULTANA</option>
+<option value="MUNICIPAL">MUNICIPAL</option>
+<option value="NAPOLES">NAPOLES</option>
+<option value="NAVARRO - LA CHANCA">NAVARRO - LA CHANCA</option>
+<option value="NORMANDIA">NORMANDIA</option>
+<option value="NUEVA FLORESTA DEL ICT">NUEVA FLORESTA DEL ICT</option>
+<option value="NUEVA GRANADA">NUEVA GRANADA</option>
+<option value="NUEVA TEQUENDAMA">NUEVA TEQUENDAMA</option>
+<option value="OLAYA HERRERA">OLAYA HERRERA</option>
+<option value="OLIMPICO">OLIMPICO</option>
+<option value="OMAR TORRIJOS">OMAR TORRIJOS</option>
+<option value="PAMPA LINDA">PAMPA LINDA</option>
+<option value="PANAMERICANO">PANAMERICANO</option>
+<option value="PARCELACIONES PANCE">PARCELACIONES PANCE</option>
+<option value="PASEO DE LOS ALMENDROS">PASEO DE LOS ALMENDROS</option>
+<option value="PASEO DEL COMERCIO">PASEO DEL COMERCIO</option>
+<option value="PASOANCHO">PASOANCHO</option>
+<option value="PETECUY I">PETECUY I</option>
+<option value="PETECUY II">PETECUY II</option>
+<option value="PETECUY III">PETECUY III</option>
+<option value="PIZAMOS I">PIZAMOS I</option>
+<option value="PLANTA DE TRATAMIENTO">PLANTA DE TRATAMIENTO</option>
+<option value="POLVORINES">POLVORINES</option>
+<option value="POPULAR">POPULAR</option>
+<option value="PORVENIR">PORVENIR</option>
+<option value="POTRERO GRANDE">POTRERO GRANDE</option>
+<option value="PRADOS DE ORIENTE">PRADOS DE ORIENTE</option>
+<option value="PRADOS DEL LIMONAR">PRADOS DEL LIMONAR</option>
+<option value="PRADOS DEL NORTE">PRADOS DEL NORTE</option>
+<option value="PRADOS DEL SUR">PRADOS DEL SUR</option>
+<option value="PRIMAVERA">PRIMAVERA</option>
+<option value="PRIMERO DE MAYO">PRIMERO DE MAYO</option>
+<option value="PRIMITIVO CRESPO">PRIMITIVO CRESPO</option>
+<option value="PROMOCIONES POPULARES">PROMOCIONES POPULARES</option>
+<option value="PUEBLO JOVEN">PUEBLO JOVEN</option>
+<option value="PUERTA DEL SOL">PUERTA DEL SOL</option>
+<option value="PUERTO MALLARINO">PUERTO MALLARINO</option>
+<option value="PUERTO NUEVO">PUERTO NUEVO</option>
+<option value="QUINTAS DE DON SIMON">QUINTAS DE DON SIMON</option>
+<option value="RAFAEL URIBE URIBE">RAFAEL URIBE URIBE</option>
+<option value="REP. DE ISRAEL">REP. DE ISRAEL</option>
+<option value="RICARDO BALCAZAR">RICARDO BALCAZAR</option>
+<option value="RODRIGO LARA BONILLA">RODRIGO LARA BONILLA</option>
+<option value="S. MONICA.B">S. MONICA.B</option>
+<option value="SAAVEDRA GALINDO">SAAVEDRA GALINDO</option>
+<option value="SALOMIA">SALOMIA</option>
+<option value="SAN ANTONIO">SAN ANTONIO</option>
+<option value="SAN BENITO">SAN BENITO</option>
+<option value="SAN CARLOS">SAN CARLOS</option>
+<option value="SAN CAYETANO">SAN CAYETANO</option>
+<option value="SAN CRISTOBAL">SAN CRISTOBAL</option>
+<option value="SAN FERNANDO NUEVO">SAN FERNANDO NUEVO</option>
+<option value="SAN FERNANDO VIEJO">SAN FERNANDO VIEJO</option>
+<option value="SAN FRANCISCO">SAN FRANCISCO</option>
+<option value="SAN JUAN BOSCO">SAN JUAN BOSCO</option>
+<option value="SAN JUDAS TADEO">SAN JUDAS TADEO</option>
+<option value="SAN JUDAS TADEO II">SAN JUDAS TADEO II</option>
+<option value="SAN LUIS">SAN LUIS</option>
+<option value="SAN LUIS II">SAN LUIS II</option>
+<option value="SAN MARINO">SAN MARINO</option>
+<option value="SAN PASCUAL">SAN PASCUAL</option>
+<option value="SAN PEDRO">SAN PEDRO</option>
+<option value="SAN PEDRO CLAVER">SAN PEDRO CLAVER</option>
+<option value="SAN VICENTE">SAN VICENTE</option>
+<option value="SANTA ANITA">SANTA ANITA</option>
+<option value="SANTA BARBARA">SANTA BARBARA</option>
+<option value="SANTA FE">SANTA FE</option>
+<option value="SANTA HELENA">SANTA HELENA</option>
+<option value="SANTA ISABEL">SANTA ISABEL</option>
+<option value="SANTA MONICA P.">SANTA MONICA P.</option>
+<option value="SANTA MONICA RESIDENCIAL">SANTA MONICA RESIDENCIAL</option>
+<option value="SANTA RITA">SANTA RITA</option>
+<option value="SANTA ROSA">SANTA ROSA</option>
+<option value="SANTA TERESITA">SANTA TERESITA</option>
+<option value="SANTANDER">SANTANDER</option>
+<option value="SANTO DOMINGO">SANTO DOMINGO</option>
+<option value="SECTOR BOSQUE MUNICIPAL">SECTOR BOSQUE MUNICIPAL</option>
+<option value="SECTOR CANAVERALEJO">SECTOR CANAVERALEJO</option>
+<option value="SECTOR EN DESARROLLO">SECTOR EN DESARROLLO</option>
+<option value="SECTOR LA SIRENA">SECTOR LA SIRENA</option>
+<option value="SECTOR LOS MANGOS">SECTOR LOS MANGOS</option>
+<option value="SECTOR MELENDEZ">SECTOR MELENDEZ</option>
+<option value="SECTOR PATIO BONITO">SECTOR PATIO BONITO</option>
+<option value="SECTOR TRANSITO MUNICIPAL">SECTOR TRANSITO MUNICIPAL</option>
+<option value="SIETE DE AGOSTO">SIETE DE AGOSTO</option>
+<option value="SILOE">SILOE</option>
+<option value="SIMON BOLIVAR">SIMON BOLIVAR</option>
+<option value="SIN INFORMACION">SIN INFORMACION</option>
+<option value="SIN INFORMACION">SIN INFORMACION</option>
+<option value="SIN INFORMACION">SIN INFORMACION</option>
+<option value="SINDICAL">SINDICAL</option>
+<option value="SUCRE">SUCRE</option>
+<option value="TEJARES - CRISTALES">TEJARES - CRISTALES</option>
+<option value="TERRON COLORADO">TERRON COLORADO</option>
+<option value="TIERRA BLANCA">TIERRA BLANCA</option>
+<option value="U. DEP.A. GALINDO PL.TOROS">U. DEP.A. GALINDO PL.TOROS</option>
+<option value="U.D. PANAMERICANA ANT. HIPODROMO">U.D. PANAMERICANA ANT. HIPODROMO</option>
+<option value="ULPIANO LLOREDA">ULPIANO LLOREDA</option>
+<option value="UND.TTES. SANTIAGO DE CALI">UND.TTES. SANTIAGO DE CALI</option>
+<option value="UNICENTRO CALI">UNICENTRO CALI</option>
+<option value="UNID. RES. EL COLISEO">UNID. RES. EL COLISEO</option>
+<option value="UNION DE VDA. POPULAR">UNION DE VDA. POPULAR</option>
+<option value="URB. LA BASE TALLERES MPIO">URB. LA BASE TALLERES MPIO</option>
+<option value="URBANIZACION CIUDAD JARDIN">URBANIZACION CIUDAD JARDIN</option>
+<option value="URBANIZACION COLSEGUROS">URBANIZACION COLSEGUROS</option>
+<option value="URBANIZACION LA FLORA">URBANIZACION LA FLORA</option>
+<option value="URBANIZACION LA MERCED">URBANIZACION LA MERCED</option>
+<option value="URBANIZACION MILITAR">URBANIZACION MILITAR</option>
+<option value="URBANIZACION RIO LILI">URBANIZACION RIO LILI</option>
+<option value="URBANIZACION TEQUENDAMA">URBANIZACION TEQUENDAMA</option>
+<option value="VALLADO">VALLADO</option>
+<option value="VENEZUELA - URB. CANAVERALEJO">VENEZUELA - URB. CANAVERALEJO</option>
+<option value="VENEZUELA CANAVERAL NORTE">VENEZUELA CANAVERAL NORTE</option>
+<option value="VERSALLES">VERSALLES</option>
+<option value="VILLA BLANCA">VILLA BLANCA</option>
+<option value="VILLA COLOMBIA">VILLA COLOMBIA</option>
+<option value="VILLA DEL LAGO">VILLA DEL LAGO</option>
+<option value="VILLA DEL SOL">VILLA DEL SOL</option>
+<option value="VILLA DEL SUR">VILLA DEL SUR</option>
+<option value="VILLA LUZ - PIZAMOS II">VILLA LUZ - PIZAMOS II</option>
+<option value="VILLAMERCEDES I">VILLAMERCEDES I</option>
+<option value="VILLANUEVA">VILLANUEVA</option>
+<option value="VILLE GRANDE">VILLE GRANDE</option>
+<option value="VIPASA">VIPASA</option>
+<option value="VISTA HERMOSA">VISTA HERMOSA</option>
+<option value="YIRA CASTRO">YIRA CASTRO</option>
+<option value="ZONA DE RESERVA AGRICOLA">ZONA DE RESERVA AGRICOLA</option>
+
+							 
+		      	 </select>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="consultar2();consultar4()">consultar</button>
+        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="consultar2()">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+	
+	<!--/.modal- barrios----------------------------------------------------------------------------------------------->
+	<a class="card-header" href="#" onclick="download_table_as_csv('table2');">
+                                <i class='bx bx-download'></i>
+                            </a>
+	
+	<table id="Table" class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>GID</th>
+		<th>NOMBRE</th>
+		<th>EMAIL</th>
+		<th>FECHA</th>
+		<th>DESCRIPCION</th>
+    </tr>
+  </thead>
+</table>
+			
+			<input type="button" id="button2" value="limpiar tabla" onClick="window.location.reload();">
+			
+			<div class="panel-body">
+						<div class="canvas-wrapper">
+							<div id="mapid" style="width: 100%; height: 500px;" class="crosshair"></div><br>
+						</div>
+					</div>
+
+    
+		<!-- <table id="Table" border="1">
+		<tr>
+		<th>GID</th>
+		<th>nombre</th>
+		<th>email</th>
+		<th>fecha</th>
+		<th>Descripción</th>
+		</tr>
+		</table> -->
+      </div>
+		
+	</div>	<!--/.main-->
+	  
+
+<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/consultatabla.js"></script>
+	<script src="js/consultatabla2.js"></script>
+	<script src="js/map2.js"></script>
+	<script src="js/consultacomuna.js"></script>
+	<script src="js/consultabarrio.js"></script>
+	
+</body>
+</html>
